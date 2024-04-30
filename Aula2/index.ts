@@ -81,3 +81,10 @@ const resposta4 = nameBuilder("Bill", "Fred", "James", "Sam");
 console.log(resposta4);
 const resposta5 = nameBuilder("Luan", resposta4);
 console.log(resposta5);
+
+// Aula 6: Generics
+
+function printItem<T>(item: Array<T>): void{
+    console.log(item.length);
+};
+printItem([1, 2, 3]);
