@@ -1,4 +1,15 @@
 "use strict";
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 // Declaração de variáveis com tipo
 var d;
@@ -48,3 +59,28 @@ var myFunc = function (_a) {
 };
 var resposta3 = myFunc({ y: 4, z: 3, x: 5 });
 console.log(resposta3);
+// Aula 5: Desestruturação
+var obj = {
+    a: 1,
+    b: 2,
+    c: 3,
+    d: 4,
+    e: {
+        f: 5,
+    },
+};
+var a = obj.a, b = obj.b, c = __rest(obj, ["a", "b"]);
+console.log(a, b, c);
+var f = obj.e.f;
+console.log(f);
+var nameBuilder = function (pNome) {
+    var oNomes = [];
+    for (var _i = 1; _i < arguments.length; _i++) {
+        oNomes[_i - 1] = arguments[_i];
+    }
+    return pNome + " " + oNomes.join(" ");
+};
+var resposta4 = nameBuilder("Bill", "Fred", "James", "Sam");
+console.log(resposta4);
+var resposta5 = nameBuilder("Luan", resposta4);
+console.log(resposta5);
