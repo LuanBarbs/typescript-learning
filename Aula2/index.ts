@@ -88,3 +88,31 @@ function printItem<T>(item: Array<T>): void{
     console.log(item.length);
 };
 printItem([1, 2, 3]);
+
+// Aula 7: Classes
+
+interface iPerson {
+    name: string;
+    age: number;
+};
+class Person implements iPerson {
+    name:string;
+    age:number;
+    constructor(name:string, age:number) {
+        this.name = name;
+        this.age = age;
+    }
+    aboutMe():string {
+        return `Olá, meu nome é ${this.name} e minha idade é ${this.age}.`;
+    }
+};
+class Func extends Person {
+    funcNumber:number;
+    constructor(name:string, age:number, funcNumber:number) {
+        super(name, age);
+        this.funcNumber = funcNumber;
+    }
+}
+let Bob = new Func("Bob", 25, 574);
+console.log(Bob.aboutMe());
+console.log(Bob.funcNumber);

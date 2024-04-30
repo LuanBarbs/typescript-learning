@@ -1,4 +1,19 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __rest = (this && this.__rest) || function (s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
@@ -84,3 +99,33 @@ var resposta4 = nameBuilder("Bill", "Fred", "James", "Sam");
 console.log(resposta4);
 var resposta5 = nameBuilder("Luan", resposta4);
 console.log(resposta5);
+// Aula 6: Generics
+function printItem(item) {
+    console.log(item.length);
+}
+;
+printItem([1, 2, 3]);
+;
+var Person = /** @class */ (function () {
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.aboutMe = function () {
+        return "Ol\u00E1, meu nome \u00E9 ".concat(this.name, " e minha idade \u00E9 ").concat(this.age, ".");
+    };
+    return Person;
+}());
+;
+var Func = /** @class */ (function (_super) {
+    __extends(Func, _super);
+    function Func(name, age, funcNumber) {
+        var _this = _super.call(this, name, age) || this;
+        _this.funcNumber = funcNumber;
+        return _this;
+    }
+    return Func;
+}(Person));
+var Bob = new Func("Bob", 25, 574);
+console.log(Bob.aboutMe());
+console.log(Bob.funcNumber);
